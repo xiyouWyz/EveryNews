@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+      <item android:title="资讯">
+          <menu>
+              <group android:checkableBehavior="single"  >
+                  <item
+                      android:id="@+id/nav_news"
+                      android:icon="@mipmap/ic_menu_news"
+                      android:title="新闻" />
+                  <item
+                      android:id="@+id/nav_photo"
+                      android:icon="@mipmap/ic_menu_photo"
+                      android:title="妹子" />
+                  <item
+                      android:id="@+id/nav_video"
+                      android:icon="@mipmap/ic_menu_video"
+                      android:title="视频" />
+
+              </group>
+          </menu>
+
+      </item>
+
+    <item android:title="设置">
+        <menu>
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@android:drawable/ic_dialog_alert"
+                android:title="欢迎star和反馈" />
+        </menu>
+    </item>
+
+</menu>

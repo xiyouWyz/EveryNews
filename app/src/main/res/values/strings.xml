@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">EveryNews</string>
+    <string name="drawer_header_text">A magical App for you</string>
+    <string name="action_settings">Setting</string>
+</resources>

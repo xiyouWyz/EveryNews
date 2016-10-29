@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4CAF50</color>
+   <!-- <color name="colorPrimaryDark">#388E3C</color>-->
+    <color name="colorPrimaryDark">#4CAF50</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="window_background">#FFF5F5F5</color>
+    <color name="theme_background">#ddd</color>
+    <color name="item_background">#ffffff</color>
+
+    <color name="drawer_header_text">#2c2c2c</color>
+
+</resources>
