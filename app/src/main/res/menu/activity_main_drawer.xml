@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-      <item android:title="资讯">
+      <item android:title="@string/one_title">
           <menu>
               <group android:checkableBehavior="single"  >
                   <item
                       android:id="@+id/nav_news"
                       android:icon="@mipmap/ic_menu_news"
-                      android:title="新闻" />
+                      android:title="@string/one_item1" />
                   <item
                       android:id="@+id/nav_photo"
                       android:icon="@mipmap/ic_menu_photo"
-                      android:title="妹子" />
+                      android:title="@string/one_item2" />
                   <item
                       android:id="@+id/nav_video"
                       android:icon="@mipmap/ic_menu_video"
-                      android:title="视频" />
+                      android:title="@string/one_item3" />
 
               </group>
           </menu>
 
       </item>
 
-    <item android:title="设置">
+    <item android:title="@string/two_title">
         <menu>
-            <item
-                android:id="@+id/nav_setting"
-                android:icon="@android:drawable/ic_dialog_alert"
-                android:title="欢迎star和反馈" />
+            <group android:checkableBehavior="single"  >
+                 <item
+                    android:id="@+id/nav_setting"
+                    android:icon="@android:drawable/ic_dialog_alert"
+                    android:title="@string/two_item1" />
+                <item android:id="@+id/nav_about"
+                    android:icon="@android:drawable/ic_menu_set_as"
+                    android:title="@string/two_item2"
+                    />
+            </group>
         </menu>
     </item>
 

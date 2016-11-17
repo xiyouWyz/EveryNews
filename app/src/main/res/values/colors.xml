@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#4CAF50</color>
-   <!-- <color name="colorPrimaryDark">#388E3C</color>-->
-    <color name="colorPrimaryDark">#4CAF50</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#03A9F4</color>
+    <color name="colorPrimaryDark">#0288D1</color>
+    <color name="colorAccent">#FF5252</color>
+    <color name="white">#fff</color>
 
-    <color name="window_background">#FFF5F5F5</color>
-    <color name="theme_background">#ddd</color>
+    //侧滑栏头部，NavigationView的headerLayout
+    <color name="drawer_header_text"> #000000</color>
+    //侧滑栏主体，NavigationView的menu
+
+    //新闻每个ViewPager中的Fragment
+    <color name="retry_refresh_news">#8a000000</color>
+    <color name="loading">#000000</color>
+    //新闻每个ViewPager中的Fragment中的每个Item设置
     <color name="item_background">#ffffff</color>
-
-    <color name="drawer_header_text">#2c2c2c</color>
-
+    <color name="item_text">#000000</color>
+        //图片加载的样子
+    <color name="image_place_holder">#DFDFDF</color>
+    //新闻Item点击后详细信息界面设置
+    <color name="container_background">#ffffff</color>
+    <color name="container_text">#000000</color>
 </resources>

@@ -1,5 +1,40 @@
 <resources>
+
+    //异常信息
+    <string name="isNetWordErr">网络错误…</string>
+    <string name="load_error">加载失败…</string>
+    <string name="retry_after">请稍后重试</string>
+    <string name="db_error">数据库加载失败…</string>
+    //侧滑栏头部，NavigationView的headerLayout
     <string name="app_name">EveryNews</string>
-    <string name="drawer_header_text">A magical App for you</string>
-    <string name="action_settings">Setting</string>
+    <string name="drawer_header_text">A perfect App for you</string>
+    <string name="action_settings">设置</string>
+    //侧滑栏主体，NavigationView的menu
+    <string name="one_title">资讯</string>
+    <string name="one_item1">新闻</string>
+    <string name="one_item2">妹子</string>
+    <string name="one_item3">视频</string>
+    <string name="two_title">设置</string>
+    <string name="two_item1">欢迎反馈</string>
+    <string name="two_item2">关于</string>
+    //新闻每个ViewPager中的Fragment
+    <string name="retry_refresh_news">点我 重新加载</string>
+    <string name="loading">加载中…</string>
+    <string name="no_more">没有更多了…</string>
+
+    //新闻每个ViewPager中的Fragment中的每个Item设置
+    <string name="news_summary_title_tv">习近平:吹响建设科技强国号角国号角国号角</string>
+    <string name="news_summary_digest_tv">科技是国之利器，中国人民生活要好，必须有强大科技。</string>    
+    <string name="news_summary_time_tv">05–28 20:09</string>
+
+    <string name="photo_collections">图集：%1$s</string>
+    <string name="news_summary_photo_title_tv">武汉孕妇临盆被洪水围困 消防营救</string>
+    <string name="news_summary_photo_time_tv">05–28 20:09</string>
+    //新闻Item点击后详细信息界面设置
+    <string name="contain_title_time">澎湃新闻 06–06 17:24</string>
+    <string name="contain_title_body">最近，“民国无名女神”在微博上火了。讲真，这位无名女神是比现在那些整容脸、
+            网红脸让人看的赏心悦目。但是，比起那些年轰动的民国美女和才女们，她还是略有逊色。
+            要知道这些美女和才女们，不论是本尊还是是后世扮演她们的演员，真真是极美的。这些人里有你心中女神么？</string>
+        //%1$s 和 @2$s会被替换掉
+    <string name="news_from">%1$s %2$s</string>
 </resources>

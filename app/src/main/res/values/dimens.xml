@@ -1,6 +1,26 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="drawer_header_height">180dp</dimen>
+
+    //新闻主要界面
+    <dimen name="fab_button_margin">15dp</dimen>
+
+    //侧滑栏头部，NavigationView的headerLayout
+    <dimen name="app_name">28sp</dimen>
+    <dimen name="drawer_header_text">16sp</dimen>
+    <dimen name="drawer_header_height">200dp</dimen>
+    //新闻每个ViewPager中的Fragment
+    <dimen name="item_margin">8dp</dimen>
+    <dimen name="loading">18sp</dimen>
+    //新闻每个ViewPager中的Fragment中的每个Item设置
+    <dimen name="news_summary_title_tv">18sp</dimen>
+    <dimen name="news_summary_digest_tv">14sp</dimen>
+    <dimen name="news_summary_time_tv">12sp</dimen>
+    <dimen name="news_summary_photo_title_tv">18sp</dimen>
+    <dimen name="news_summary_photo_time_tv">12sp</dimen>
+    //新闻Item点击后详细信息界面设置
+    <dimen name="title_margin">24dp</dimen>
+    <dimen name="contain_margin">16dp</dimen>
+    <dimen name="contain_title_time">14sp</dimen>
+    <dimen name="contain_title_body">18sp</dimen>
+
 </resources>
