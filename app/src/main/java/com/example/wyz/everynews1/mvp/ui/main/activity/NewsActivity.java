@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
@@ -28,6 +29,8 @@ import com.example.wyz.everynews1.utils.RxBus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.inject.Inject;
 
@@ -94,14 +97,11 @@ public class NewsActivity extends BaseActivity
         mPresenter.attachView(this);
     }
 
-    @OnClick({R.id.fab, R.id.add_channel_iv})
+    @OnClick({R.id.fab})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab:
                 RxBus.getInstance().post(new ScrollToTopEvent());
-                break;
-            case R.id.add_channel_iv:
-                Toast.makeText(NewsActivity.this,"1111",Toast.LENGTH_SHORT).show();
                 break;
         }
 
@@ -194,5 +194,35 @@ public class NewsActivity extends BaseActivity
     @Override
     public void showMsg(String message) {
         Snackbar.make(mFab, message, Snackbar.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==event.KEYCODE_BACK){
+            exitByTwoClick();
+        }
+        return  false;
+    }
+    //是否点击了退出按钮
+    private static Boolean isExit = false;
+    private void exitByTwoClick() {
+        Timer tExit;
+        if(isExit){
+            //连续第二次点击退出程序
+            finish();
+            System.exit(0);
+        }else{
+            //第一次点击返回
+            isExit=true;
+            Toast.makeText(NewsActivity.this,"再按一次退出程序",Toast.LENGTH_SHORT).show();
+            tExit=new Timer();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    //将isExit设置为false，表示取消退出
+                    isExit=false;
+                }
+            },2000 );//如果两秒内没有按下返回键，则启动定时器取消刚才执行的任务
+        }
     }
 }

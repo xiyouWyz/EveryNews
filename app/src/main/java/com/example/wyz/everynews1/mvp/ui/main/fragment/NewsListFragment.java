@@ -35,22 +35,19 @@ import com.example.wyz.everynews1.mvp.entity.NewsPhotoDetail;
 import com.example.wyz.everynews1.mvp.entity.NewsSummary;
 import com.example.wyz.everynews1.mvp.presenter.impl.NewsListPresenterImpl;
 import com.example.wyz.everynews1.mvp.ui.main.activity.NewsDetailActivity;
+import com.example.wyz.everynews1.mvp.ui.main.activity.NewsPhotoDetailActivity;
 import com.example.wyz.everynews1.mvp.ui.main.adapter.NewsListAdapter;
 import com.example.wyz.everynews1.mvp.ui.main.fragment.base.BaseFragment;
 import com.example.wyz.everynews1.mvp.view.NewsListView;
 import com.example.wyz.everynews1.utils.NetUtil;
 import com.example.wyz.everynews1.utils.RxBus;
-import com.example.wyz.everynews1.widget.FastScrollLinearLayoutManager;
-
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
+
 import butterknife.OnClick;
 import rx.functions.Action1;
 
@@ -241,12 +238,18 @@ public class NewsListFragment extends BaseFragment implements NewsListView,NewsL
     @Override
     public void onItemClick(View view, int position, boolean isPhoto) {
         if (isPhoto) {
-            /*NewsPhotoDetail newsPhotoDetail = getPhotoDetail(position);
-            goToPhotoDetailActivity(newsPhotoDetail);*/
+            NewsPhotoDetail newsPhotoDetail = getPhotoDetail(position);
+            goToPhotoDetailActivity(newsPhotoDetail);
         } else {
             goToNewsDetailActivity(view, position);
 
         }
+    }
+
+    private void goToPhotoDetailActivity(NewsPhotoDetail newsPhotoDetail) {
+        Intent intent = new Intent(getActivity(), NewsPhotoDetailActivity.class);
+        intent.putExtra(Constants.PHOTO_DETAIL, newsPhotoDetail);
+        startActivity(intent);
     }
 
     private void goToNewsDetailActivity(View view, int position) {

@@ -37,4 +37,13 @@
             要知道这些美女和才女们，不论是本尊还是是后世扮演她们的演员，真真是极美的。这些人里有你心中女神么？</string>
         //%1$s 和 @2$s会被替换掉
     <string name="news_from">%1$s %2$s</string>
+    //新闻Item点击后纯图片详细信息界面设置
+    <string name="news_title">图片新闻</string>
+    <string name="photo_detail_title_tv">1/5  武汉奢华别墅区被洪水围困成孤岛</string>
+    <string name="photo_detail_title">%1$d/%2$d　%3$s</string>
+
+
+    //图片界面设置
+    <string name="photo_title">图片</string>
+    <string name="girl">妹纸</string>
 </resources>

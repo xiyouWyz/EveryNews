@@ -29,7 +29,8 @@ public class NewDetailInteractorImpl implements NewDetailInteractor<NewsDetail>{
 
     @Override
     public Subscription loadNewsDetail(final  RequestCallBack<NewsDetail> callBack, final String postId) {
-       return RetrofitManager.getInstance(HostType.NETEASE_NEWS_VIDEO).getNewDetailObserable(postId)
+       return RetrofitManager.getInstance(HostType.NETEASE_NEWS_VIDEO)
+               .getNewDetailObservable(postId)
                    .map(new Func1<Map<String,NewsDetail>,NewsDetail>() {
 
                        @Override

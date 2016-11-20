@@ -4,8 +4,10 @@ import android.util.SparseArray;
 
 import com.example.wyz.everynews1.common.ApiConstants;
 import com.example.wyz.everynews1.common.HostType;
+import com.example.wyz.everynews1.mvp.entity.GirlData;
 import com.example.wyz.everynews1.mvp.entity.NewsDetail;
 import com.example.wyz.everynews1.mvp.entity.NewsSummary;
+import com.example.wyz.everynews1.mvp.entity.PhotoGirl;
 import com.example.wyz.everynews1.utils.NetUtil;
 import java.util.List;
 import java.util.Map;
@@ -100,11 +102,14 @@ public class RetrofitManager {
     public rx.Observable<Map<String, List<NewsSummary>>> getNewsListObservable(String newsType, String newId, int startPage) {
         return newsService.getNewsList(getCacheControl(), newsType, newId, startPage);
     }
-    public  rx.Observable<Map<String,NewsDetail>> getNewDetailObserable(String postId) {
+    public  rx.Observable<Map<String,NewsDetail>> getNewDetailObservable(String postId) {
         return  newsService.getNewsDetail(getCacheControl(),postId);
     }
     public Observable<ResponseBody> getNewsBodyHtmlPhoto(String photoPath){
         return  newsService.getNewsBodyHtmlPhoto(photoPath);
+    }
+    public Observable<GirlData> getPhotoListObservable(int size, int page){
+        return  newsService.getPhotoList(size,page);
     }
 
 

@@ -1,8 +1,10 @@
 package com.example.wyz.everynews1.repository.network;
 
 
+import com.example.wyz.everynews1.mvp.entity.GirlData;
 import com.example.wyz.everynews1.mvp.entity.NewsDetail;
 import com.example.wyz.everynews1.mvp.entity.NewsSummary;
+import com.example.wyz.everynews1.mvp.entity.PhotoGirl;
 
 import java.util.List;
 import java.util.Map;
@@ -35,6 +37,12 @@ public interface NewsService {
     @GET
     Observable<ResponseBody> getNewsBodyHtmlPhoto(
             @Url String photoPath
+    );
+    @GET("data/福利/{size}/{page}")
+    Observable<GirlData> getPhotoList(
+            //@Header("Cache_Control") String cacheControl,
+            @Path("size") int size,
+            @Path("page") int page
     );
 
 }

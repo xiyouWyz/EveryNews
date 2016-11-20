@@ -22,5 +22,7 @@
     <dimen name="contain_margin">16dp</dimen>
     <dimen name="contain_title_time">14sp</dimen>
     <dimen name="contain_title_body">18sp</dimen>
+    //新闻Item点击后纯图片详细信息界面设置
+   <dimen name="photo_detail_title_tv">18sp</dimen>
 
 </resources>

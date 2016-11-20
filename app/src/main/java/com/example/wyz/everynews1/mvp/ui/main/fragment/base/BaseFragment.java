@@ -13,7 +13,7 @@ import com.example.wyz.everynews1.di.component.FragmentComponent;
 import com.example.wyz.everynews1.di.module.FragmentModule;
 import com.example.wyz.everynews1.mvp.presenter.base.BasePresenter;
 import com.example.wyz.everynews1.utils.MyUtils;
-import com.squareup.leakcanary.RefWatcher;
+//import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
 import rx.Subscription;
@@ -64,8 +64,8 @@ public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        RefWatcher refWatcher = MyApp.getRefWatcher(getActivity());
-        refWatcher.watch(this);
+        //RefWatcher refWatcher = MyApp.getRefWatcher(getActivity());
+        //refWatcher.watch(this);
 
         if (mPresenter != null) {
             mPresenter.onDestroy();

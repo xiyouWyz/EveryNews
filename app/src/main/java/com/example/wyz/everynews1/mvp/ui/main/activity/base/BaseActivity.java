@@ -28,10 +28,12 @@ import com.example.wyz.everynews1.di.module.ActivityModule;
 import com.example.wyz.everynews1.mvp.presenter.base.BasePresenter;
 import com.example.wyz.everynews1.mvp.ui.main.activity.NewsActivity;
 import com.example.wyz.everynews1.mvp.ui.main.activity.NewsDetailActivity;
+import com.example.wyz.everynews1.mvp.ui.main.activity.PhotoActivity;
+import com.example.wyz.everynews1.mvp.ui.main.activity.PhotoDetailActivity;
 import com.example.wyz.everynews1.utils.MyUtils;
 import com.example.wyz.everynews1.utils.NetUtil;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-import com.squareup.leakcanary.RefWatcher;
+//import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
 import rx.Subscription;
@@ -167,7 +169,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
                             mClass = NewsActivity.class;
                             break;
                         case R.id.nav_photo:
-                            mClass = NewsActivity.class;
+                            mClass = PhotoActivity.class;
                             break;
                         case R.id.nav_video:
                             Toast.makeText(BaseActivity.this, "施工准备中...", Toast.LENGTH_SHORT).show();
@@ -179,7 +181,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
             });
         }
 
-        mDrawerLayout.setDrawerListener(new DrawerLayout.SimpleDrawerListener() {
+        mDrawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
@@ -225,8 +227,9 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @TargetApi(Build.VERSION_CODES.KITKAT)
     protected void setStatusBarTranslucent() {
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
-                !(this instanceof NewsDetailActivity ))
-                || (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT
+                !(this instanceof NewsDetailActivity|| this instanceof PhotoActivity
+                        ||this instanceof PhotoDetailActivity))
+                ||(Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT
                 && this instanceof NewsDetailActivity)) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             SystemBarTintManager tintManager = new SystemBarTintManager(this);
@@ -306,8 +309,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        RefWatcher refWatcher = MyApp.getRefWatcher(this);
-        refWatcher.watch(this);
+       // RefWatcher refWatcher = MyApp.getRefWatcher(this);
+        //refWatcher.watch(this);
 
         if (mPresenter != null) {
             mPresenter.onDestroy();

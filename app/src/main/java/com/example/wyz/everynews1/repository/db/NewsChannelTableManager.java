@@ -25,9 +25,9 @@ public class NewsChannelTableManager {
         if (!MyUtils.getSharedPreferences().getBoolean(Constants.INIT_DB, false)) {
             NewsChannelTableDao dao = MyApp.getNewsChannelTableDao();
             List<String> channelName = Arrays.asList(MyApp.getAppContext().getResources()
-                    .getStringArray(R.array.news_channel_name));
+                    .getStringArray(R.array.news_channel_all_name));
             List<String> channelId = Arrays.asList(MyApp.getAppContext().getResources()
-                    .getStringArray(R.array.news_channel_id));
+                    .getStringArray(R.array.news_channel_all_id));
             for (int i = 0; i < channelName.size(); i++) {
                 NewsChannelTable entity = new NewsChannelTable(channelName.get(i), channelId.get(i)
                         , ApiConstants.getType(channelId.get(i)), i <= 5, i, i == 0);

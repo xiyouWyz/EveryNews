@@ -13,8 +13,8 @@ import com.example.wyz.everynews1.di.component.DaggerApplicationComponent;
 import com.example.wyz.everynews1.di.module.ApplicationModule;
 import com.example.wyz.everynews1.utils.LogUtil;
 import com.example.wyz.everynews1.utils.MyUtils;
-import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
+//import com.squareup.leakcanary.LeakCanary;
+//import com.squareup.leakcanary.RefWatcher;
 
 import de.greenrobot.dao.query.QueryBuilder;
 import com.example.wyz.everynews1.greendao.DaoMaster;
@@ -27,12 +27,12 @@ import com.example.wyz.everynews1.greendao.NewsChannelTableDao;
  */
 public class MyApp extends Application{
     private  ApplicationComponent mApplicationComponent;
-    private RefWatcher refWatcher;
+    /*private RefWatcher refWatcher;
 
     public static RefWatcher getRefWatcher(Context context) {
         MyApp application = (MyApp) context.getApplicationContext();
         return application.refWatcher;
-    }
+    }*/
 
     private static Context sAppContext;
     private static DaoSession mDaoSession;
@@ -41,9 +41,9 @@ public class MyApp extends Application{
     public void onCreate() {
         super.onCreate();
         sAppContext = this;
-        initLeakCanary();
-        initActivityLifecycleLogs();
-        initStrictMode();
+        //initLeakCanary();
+        //initActivityLifecycleLogs();
+        //initStrictMode();
         //initDayNightMode();
 
         // 官方推荐将获取 DaoMaster 对象的方法放到 Application 层，这样将避免多次创建生成 Session 对象
@@ -53,19 +53,19 @@ public class MyApp extends Application{
     }
 
     private void initLeakCanary() {
-        if (BuildConfig.DEBUG) {
+        /*if (BuildConfig.DEBUG) {
             refWatcher = LeakCanary.install(this);
         } else {
             refWatcher = installLeakCanary();
-        }
+        }*/
     }
 
     /**
      * release版本使用此方法
      */
-    protected RefWatcher installLeakCanary() {
+    /*protected RefWatcher installLeakCanary() {
         return RefWatcher.DISABLED;
-    }
+    }*/
 
     private void initActivityLifecycleLogs() {
         this.registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
@@ -164,6 +164,7 @@ public class MyApp extends Application{
         return mDaoSession.getNewsChannelTableDao();
     }
 
+    //新闻信息是否包含图片
     public static boolean isHavePhoto() {
         return MyUtils.getSharedPreferences().getBoolean(Constants.SHOW_NEWS_PHOTO, true);
     }

@@ -18,6 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".mvp.ui.main.activity.NewsDetailActivity"/>
+        <activity android:name=".mvp.ui.main.activity.NewsPhotoDetailActivity"/>
+        <activity android:name=".mvp.ui.main.activity.PhotoActivity"/>
+        <activity android:name=".mvp.ui.main.activity.PhotoDetailActivity"/>
     </application>
 
 </manifest>

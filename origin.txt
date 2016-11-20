@@ -1,0 +1,5 @@
+origin: originEveryNews
+
+git push originEveryNews master
+
+UserName:xiyouWyz

@@ -39,7 +39,8 @@ public class NewsListInteractorImpl implements NewsListInteractor<List<NewsSumma
         // 对API调用了observeOn(MainThread)之后，线程会跑在主线程上，包括onComplete也是，
         // unsubscribe也在主线程，然后如果这时候调用call.cancel会导致NetworkOnMainThreadException
         // 加一句unsubscribeOn(io)
-        return RetrofitManager.getInstance(HostType.NETEASE_NEWS_VIDEO).getNewsListObservable(type, id, startPage)
+        return RetrofitManager.getInstance(HostType.NETEASE_NEWS_VIDEO)
+                .getNewsListObservable(type, id, startPage)
                 .flatMap(new Func1<Map<String, List<NewsSummary>>, Observable<NewsSummary>>() {
                     @Override
                     public Observable<NewsSummary> call(Map<String, List<NewsSummary>> map) {

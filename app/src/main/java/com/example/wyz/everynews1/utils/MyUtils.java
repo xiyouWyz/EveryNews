@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 
 import com.example.wyz.everynews1.MyApp;
@@ -141,5 +142,8 @@ public class MyUtils {
 
     public static int getScreenWith() {
         return MyApp.getAppContext().getResources().getDisplayMetrics().widthPixels;
+    }
+    public static View getRootView(Activity context) {
+        return ((ViewGroup) context.findViewById(android.R.id.content)).getChildAt(0);
     }
 }
