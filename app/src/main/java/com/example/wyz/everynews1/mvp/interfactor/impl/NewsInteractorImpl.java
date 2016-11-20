@@ -1,23 +1,15 @@
 package com.example.wyz.everynews1.mvp.interfactor.impl;
-
 import com.example.wyz.everynews1.MyApp;
 import com.example.wyz.everynews1.R;
 import com.example.wyz.everynews1.common.ApiConstants;
-import com.example.wyz.everynews1.common.Constants;
 import com.example.wyz.everynews1.greendao.NewsChannelTable;
-import com.example.wyz.everynews1.greendao.NewsChannelTableDao;
 import com.example.wyz.everynews1.listener.RequestCallBack;
 import com.example.wyz.everynews1.mvp.interfactor.NewsInteractor;
-import com.example.wyz.everynews1.repository.db.NewsChannelTableManager;
-import com.example.wyz.everynews1.utils.MyUtils;
 import com.example.wyz.everynews1.utils.TransformUtils;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import javax.inject.Inject;
-
 import rx.Subscriber;
 import rx.Subscription;
 
@@ -64,7 +56,7 @@ public class NewsInteractorImpl implements NewsInteractor<List<NewsChannelTable>
     public static  List<NewsChannelTable> loadNewcChannelData() {
 
         List<NewsChannelTable> newsChannelTables=new ArrayList<>();
-        NewsChannelTableDao dao = MyApp.getNewsChannelTableDao();
+
         List<String> channelName = Arrays.asList(MyApp.getAppContext().getResources()
                 .getStringArray(R.array.news_channel_choose_name));
         List<String> channelId = Arrays.asList(MyApp.getAppContext().getResources()
