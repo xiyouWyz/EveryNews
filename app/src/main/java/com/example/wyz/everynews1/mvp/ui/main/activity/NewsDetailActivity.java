@@ -1,7 +1,8 @@
 package com.example.wyz.everynews1.mvp.ui.main.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -9,7 +10,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.text.method.HideReturnsTransformationMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,12 +25,10 @@ import com.daimajia.androidanimations.library.YoYo;
 import com.example.wyz.everynews1.MyApp;
 import com.example.wyz.everynews1.R;
 import com.example.wyz.everynews1.common.Constants;
-import com.example.wyz.everynews1.greendao.NewsChannelTable;
 import com.example.wyz.everynews1.mvp.entity.NewsDetail;
 import com.example.wyz.everynews1.mvp.presenter.impl.NewDetailPresenterImpl;
 import com.example.wyz.everynews1.mvp.ui.main.activity.base.BaseActivity;
 import com.example.wyz.everynews1.mvp.view.NewsDetailView;
-import com.example.wyz.everynews1.mvp.view.NewsView;
 import com.example.wyz.everynews1.utils.LogUtil;
 import com.example.wyz.everynews1.utils.MyUtils;
 import com.example.wyz.everynews1.utils.NetUtil;
@@ -76,6 +74,7 @@ public class NewsDetailActivity extends BaseActivity  implements NewsDetailView{
 
     private  String mNewsTitle;
     private URLImageGetter mURLImageGetter;
+    private  String mShareLink;
 
     @Override
     public int getLayoutId() {
@@ -102,24 +101,39 @@ public class NewsDetailActivity extends BaseActivity  implements NewsDetailView{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main,menu);
+        getMenuInflater().inflate(R.menu.news_detail_menu,menu);
         return  true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case    R.id.action_settings:
-                break;
-            case  R.id.action_settings1:
+            case    R.id.action_browser:
+                openByBrowse();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void openByBrowse() {
+        Intent intent=new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        if(canBrowse(intent)){
+            Uri uri=Uri.parse(mShareLink);
+            intent.setData(uri);
+            startActivity(intent);
+        }
+    }
+
+    private boolean canBrowse(Intent intent) {
+        return  intent.resolveActivity(getPackageManager())!=null&&mShareLink!=null;
+    }
+
     @SuppressWarnings("deprecation")
     @Override
     public void setNewsDetail(NewsDetail newsDetail) {
         mNewsTitle=newsDetail.getTitle();
+        mShareLink=newsDetail.getShareLink();
         String newsSource=newsDetail.getSource();
         String newspTime= MyUtils.formatDate(newsDetail.getPtime());
         String newsBody=newsDetail.getBody();
@@ -149,8 +163,8 @@ public class NewsDetailActivity extends BaseActivity  implements NewsDetailView{
                     @Override
                     public void onCompleted() {
                         mProgressBar.setVisibility(View.GONE);
-                        //mFab.setVisibility(View.VISIBLE);
-                        //YoYo.with(Techniques.BounceIn).playOn(mFab);
+                        mFab.setVisibility(View.VISIBLE);
+                        YoYo.with(Techniques.RollIn).playOn(mFab);
                     }
 
                     @Override
@@ -220,8 +234,20 @@ public class NewsDetailActivity extends BaseActivity  implements NewsDetailView{
     public  void onClick(){share();}
 
     private void share() {
-        Snackbar.make(mAppBar,"分享",Snackbar.LENGTH_SHORT).show();
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share));
+        intent.putExtra(Intent.EXTRA_TEXT, getShareContents());
+        startActivity(Intent.createChooser(intent, getTitle()));
     }
+
+    private String getShareContents() {
+        if (mShareLink==null){
+            mShareLink="";
+        }
+        return  getString(R.string.share_contents,mNewsTitle,mShareLink);
+    }
+
     @Override
     protected void onDestroy() {
         cancelUrlImageGetterSubscription();
@@ -240,5 +266,6 @@ public class NewsDetailActivity extends BaseActivity  implements NewsDetailView{
             LogUtil.d(TAG,"取消UrlImageGetter Subscription 出现异常： " + e.toString());
         }
     }
+
 
 }

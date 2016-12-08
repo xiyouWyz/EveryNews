@@ -7,8 +7,8 @@
     <string name="db_error">数据库加载失败…</string>
     //侧滑栏头部，NavigationView的headerLayout
     <string name="app_name">EveryNews</string>
-    <string name="drawer_header_text">A perfect App for you</string>
-    <string name="action_settings">设置</string>
+    <string name="drawer_header_text">A Magical App for you</string>
+    <string name="action_about">关于</string>
     //侧滑栏主体，NavigationView的menu
     <string name="one_title">资讯</string>
     <string name="one_item1">新闻</string>
@@ -37,6 +37,9 @@
             要知道这些美女和才女们，不论是本尊还是是后世扮演她们的演员，真真是极美的。这些人里有你心中女神么？</string>
         //%1$s 和 @2$s会被替换掉
     <string name="news_from">%1$s %2$s</string>
+    <string name="share">分享</string>
+    <string name="share_contents">来自「EveryNews」的分享：%1$s %2$s</string>
+    <string name="menu_browser_item">用浏览器打开</string>
     //新闻Item点击后纯图片详细信息界面设置
     <string name="news_title">图片新闻</string>
     <string name="photo_detail_title_tv">1/5  武汉奢华别墅区被洪水围困成孤岛</string>
@@ -46,4 +49,9 @@
     //图片界面设置
     <string name="photo_title">图片</string>
     <string name="girl">妹纸</string>
+    <string name="menu_share_item">分享</string>
+    <string name="menu_save_item">保存</string>
+    <string name="menu_wallPaper_item">设置为壁纸</string>
+    <string name="picture_already_save_to">图片已保存至%1$s</string>
+    <string name="set_wallpaper_success">设置壁纸成功</string>
 </resources>

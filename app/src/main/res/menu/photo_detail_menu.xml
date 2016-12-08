@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<app:menu xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item android:id="@+id/share"
+        android:icon="@mipmap/ic_share"
+          android:orderInCategory="100"
+          android:title="@string/menu_share_item"
+          app:showAsAction="ifRoom"
+        />
+    <item android:id="@+id/save"
+          android:orderInCategory="100"
+          android:title="@string/menu_save_item"
+          app:showAsAction="never"
+        />
+    <item android:id="@+id/wallPaper"
+          android:orderInCategory="100"
+          android:title="@string/menu_wallPaper_item"
+          app:showAsAction="never"
+        />
+</app:menu>

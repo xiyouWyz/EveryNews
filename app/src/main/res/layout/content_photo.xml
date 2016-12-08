@@ -28,7 +28,7 @@
         android:drawableTop="@mipmap/ic_photo_empty"
         android:gravity="center"
         android:text="@string/retry_refresh_news"
-        android:textColor="@color/black"
+        android:textColor="@color/retry_refresh_news"
         android:textSize="@dimen/big_medium"
         android:visibility="gone"
         tools:visibility="visible"/>
@@ -48,3 +48,4 @@
         android:src="@mipmap/fab_up"
         app:layout_behavior=".widget.ScrollAwareFABBehavior"/>
 </merge>
+

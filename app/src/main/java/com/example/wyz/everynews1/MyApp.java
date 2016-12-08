@@ -37,6 +37,7 @@ public class MyApp extends Application{
     public void onCreate() {
         super.onCreate();
         sAppContext = this;
+
         //initLeakCanary();
         //initActivityLifecycleLogs();
         //initDayNightMode();

@@ -1,9 +1,7 @@
 package com.example.wyz.everynews1.mvp.ui.main.activity.base;
 
 import android.annotation.TargetApi;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,7 +9,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,10 +30,11 @@ import com.example.wyz.everynews1.mvp.ui.main.activity.PhotoDetailActivity;
 import com.example.wyz.everynews1.utils.MyUtils;
 import com.example.wyz.everynews1.utils.NetUtil;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
-//import com.squareup.leakcanary.RefWatcher;
 
 import butterknife.ButterKnife;
 import rx.Subscription;
+
+//import com.squareup.leakcanary.RefWatcher;
 
 /**
  * Created by Wyz on 2016/11/7.
@@ -286,12 +284,12 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
                     finish();
                 }
                 break;
-            /*case R.id.action_about:
-                if (mIsHasNavigationView) {
+            case R.id.action_about:
+                /*if (mIsHasNavigationView) {
                     Intent intent = new Intent(this, AboutActivity.class);
                     startActivity(intent);
-                }
-                break;*/
+                }*/
+                break;
 
         }
         return super.onOptionsItemSelected(item);

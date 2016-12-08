@@ -5,15 +5,17 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.widget.Toolbar;
 import android.transition.Transition;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Toast;
 
 import com.example.wyz.everynews1.R;
 import com.example.wyz.everynews1.common.Constants;
+import com.example.wyz.everynews1.common.PhotoRequestType;
 import com.example.wyz.everynews1.di.scope.ContextLife;
 import com.example.wyz.everynews1.mvp.presenter.impl.PhotoDetailPresenterImpl;
 import com.example.wyz.everynews1.mvp.ui.main.activity.base.BaseActivity;
@@ -21,7 +23,6 @@ import com.example.wyz.everynews1.mvp.view.PhotoDetailView;
 import com.example.wyz.everynews1.utils.MyUtils;
 import com.example.wyz.everynews1.utils.SystemUIVisibilityUtil;
 import com.squareup.picasso.Picasso;
-
 
 import javax.inject.Inject;
 
@@ -190,4 +191,36 @@ public class PhotoDetailActivity  extends BaseActivity implements PhotoDetailVie
     public void showMsg(String message) {
         Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.photo_detail_menu,menu);
+        return  true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case  R.id.share:
+                handlePicture(PhotoRequestType.TYPE_SHARE);
+                return true;
+            case  R.id.save:
+                handlePicture(PhotoRequestType.TYPE_SAVE);
+                return true;
+            case  R.id.wallPaper:
+                handlePicture(PhotoRequestType.TYPE_SET_WALLPAPER);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void handlePicture(int typeShare) {
+        initPresenter();
+        mPhotoDetailPresenter.get().handlePicture(getIntent().getStringExtra(Constants.PHOTO_DETAIL),typeShare);
+    }
+    private void initPresenter() {
+        mPresenter = mPhotoDetailPresenter.get(); // 在这时才创建mPhotoDetailPresenter,以后每次调用get会得到同一个mPhotoDetailPresenter对象
+        mPresenter.attachView(this);
+    }
+
 }
