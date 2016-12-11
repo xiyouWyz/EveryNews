@@ -3,10 +3,7 @@ package com.example.wyz.everynews1.mvp.ui.main.fragment;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityOptions;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,15 +11,11 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -41,13 +34,13 @@ import com.example.wyz.everynews1.mvp.ui.main.fragment.base.BaseFragment;
 import com.example.wyz.everynews1.mvp.view.NewsListView;
 import com.example.wyz.everynews1.utils.NetUtil;
 import com.example.wyz.everynews1.utils.RxBus;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
-
 import butterknife.OnClick;
 import rx.functions.Action1;
 
@@ -292,16 +285,8 @@ public class NewsListFragment extends BaseFragment implements NewsListView,NewsL
 
         pictureList.add(picture);
     }
-/*
-    private void goToPhotoDetailActivity(NewsPhotoDetail newsPhotoDetail) {
-        Intent intent = new Intent(getActivity(), NewsPhotoDetailActivity.class);
-        intent.putExtra(Constants.PHOTO_DETAIL, newsPhotoDetail);
-        startActivity(intent);
-    }
-    private void goToNewsDetailActivity(View view, int position) {
-        Intent intent = setIntent(position);
-        startActivity(view, intent);
-    }*/
+
+
 
     @NonNull
     private Intent setIntent(int position) {

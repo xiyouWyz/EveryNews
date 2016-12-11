@@ -73,13 +73,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/item_background"
             android:padding="@dimen/contain_margin">
             <TextView
                 android:id="@+id/news_detail_from_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                android:textColor="@color/container_text"
+                android:textColor="@color/secondary_text"
                 android:textSize="@dimen/contain_title_time"
                 tools:text="@string/contain_title_time"/>
             <TextView
@@ -90,7 +91,7 @@
                 android:layout_marginTop="10dp"
                 android:lineSpacingExtra="6dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="@color/container_text"
+                android:textColor="@color/primary_text"
                 android:textSize="@dimen/contain_title_body"
                 tools:text="@string/contain_title_body"/>
 

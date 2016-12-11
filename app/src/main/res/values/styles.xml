@@ -29,6 +29,12 @@
         <item name="@android:windowEnterAnimation">@anim/fade_in</item>
         <item name="@android:windowExitAnimation">@anim/fade_out</item>
     </style>
+    <style name="AppTheme.NoTrans">
+    </style>
 
+    <style name="AppTheme.Trans">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
 </resources>

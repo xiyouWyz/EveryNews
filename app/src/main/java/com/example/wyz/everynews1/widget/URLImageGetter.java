@@ -4,14 +4,17 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.Html;
 import android.widget.TextView;
+
 import com.example.wyz.everynews1.MyApp;
 import com.example.wyz.everynews1.R;
 import com.example.wyz.everynews1.common.HostType;
 import com.example.wyz.everynews1.repository.network.RetrofitManager;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+
 import okhttp3.ResponseBody;
 import rx.Subscriber;
 import rx.Subscription;

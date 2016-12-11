@@ -1,19 +1,25 @@
 package com.example.wyz.everynews1.mvp.ui.main.activity.base;
 
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.wyz.everynews1.MyApp;
@@ -72,7 +78,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         NetUtil.isNetworkErrThenShowMsg();
         initActivityComponent();
         setStatusBarTranslucent();
-        //setNightOrDayMode();
+        setNightOrDayMode();
 
         int layoutId = getLayoutId();
         setContentView(layoutId);
@@ -87,18 +93,17 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
             mPresenter.onCreate();
         }
 
-        //initNightModeSwitch();
+        initNightModeSwitch();
     }
-
     private void initAnnotation() {
         if (getClass().isAnnotationPresent(BindValues.class)) {
             BindValues annotation = getClass().getAnnotation(BindValues.class);
             mIsHasNavigationView = annotation.mIsHasNavigationView();
         }
     }
-/*
+
     private void initNightModeSwitch() {
-        if (this instanceof NewsActivity ) {
+        if (this instanceof NewsActivity || this instanceof PhotoActivity) {
             MenuItem menuNightMode = mBaseNavView.getMenu().findItem(R.id.nav_night_mode);
             SwitchCompat dayNightSwitch = (SwitchCompat) MenuItemCompat
                     .getActionView(menuNightMode);
@@ -131,7 +136,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
                 mDrawerLayout.closeDrawer(GravityCompat.START);
             }
         });
-    }*/
+    }
 
     private void initActivityComponent() {
         mActivityComponent = DaggerActivityComponent.builder()
@@ -153,9 +158,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         NavigationView navView = (NavigationView) findViewById(R.id.nav_view);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, mDrawerLayout, toolbar,0,0);
-
-        mDrawerLayout.setDrawerListener(toggle);
+                this, mDrawerLayout, toolbar, 0, 0);
+        mDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
         if (navView != null) {
@@ -171,6 +175,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
                             break;
                         case R.id.nav_video:
                             Toast.makeText(BaseActivity.this, "施工准备中...", Toast.LENGTH_SHORT).show();
+                            break;
+                        case R.id.nav_night_mode:
                             break;
                     }
                     mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -209,7 +215,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
             super.onBackPressed();
         }
     }
-/*
+
     private void setNightOrDayMode() {
         if (MyUtils.isNightMode()) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
@@ -219,15 +225,15 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-    }*/
+    }
 
     // TODO:适配4.4
     @TargetApi(Build.VERSION_CODES.KITKAT)
     protected void setStatusBarTranslucent() {
         if ((Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT &&
-                !(this instanceof NewsDetailActivity|| this instanceof PhotoActivity
-                        ||this instanceof PhotoDetailActivity))
-                ||(Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT
+                !(this instanceof NewsDetailActivity || this instanceof PhotoActivity
+                        || this instanceof PhotoDetailActivity))
+                || (Build.VERSION.SDK_INT == Build.VERSION_CODES.KITKAT
                 && this instanceof NewsDetailActivity)) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             SystemBarTintManager tintManager = new SystemBarTintManager(this);
@@ -235,7 +241,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
             tintManager.setStatusBarTintResource(R.color.colorPrimary);
         }
     }
-/*
+
     public void changeToDay() {
 //        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -263,7 +269,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         mWindowManager.addView(mNightView, nightViewParam);
         mIsAddedView = true;
     }
-*/
+
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
@@ -285,10 +291,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
                 }
                 break;
             case R.id.action_about:
-                /*if (mIsHasNavigationView) {
-                    Intent intent = new Intent(this, AboutActivity.class);
-                    startActivity(intent);
-                }*/
+
                 break;
 
         }
@@ -307,8 +310,8 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
     @Override
     protected void onDestroy() {
         super.onDestroy();
-       // RefWatcher refWatcher = MyApp.getRefWatcher(this);
-        //refWatcher.watch(this);
+       /* RefWatcher refWatcher = App.getRefWatcher(this);
+        refWatcher.watch(this);*/
 
         if (mPresenter != null) {
             mPresenter.onDestroy();
@@ -327,4 +330,6 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
             mNightView = null;
         }
     }
+
+
 }

@@ -16,6 +16,7 @@
     <string name="one_item3">视频</string>
     <string name="two_title">设置</string>
     <string name="two_item1">欢迎反馈</string>
+    <string name="night_mode">夜间模式</string>
     <string name="two_item2">关于</string>
     //新闻每个ViewPager中的Fragment
     <string name="retry_refresh_news">点我 重新加载</string>

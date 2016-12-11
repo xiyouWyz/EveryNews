@@ -7,7 +7,6 @@ import com.example.wyz.everynews1.common.HostType;
 import com.example.wyz.everynews1.mvp.entity.GirlData;
 import com.example.wyz.everynews1.mvp.entity.NewsDetail;
 import com.example.wyz.everynews1.mvp.entity.NewsSummary;
-import com.example.wyz.everynews1.mvp.entity.PhotoGirl;
 import com.example.wyz.everynews1.utils.NetUtil;
 import java.util.List;
 import java.util.Map;

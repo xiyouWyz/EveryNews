@@ -23,7 +23,7 @@
             android:layout_marginRight="@dimen/item_margin"
             android:layout_marginTop="@dimen/item_margin"
             android:singleLine="true"
-            android:textColor="@color/item_text"
+            android:textColor="@color/primary_text"
             android:textSize="@dimen/news_summary_photo_title_tv"
             tools:text="@string/news_summary_photo_title_tv"/>
 
@@ -57,7 +57,7 @@
             android:layout_gravity="right"
             android:layout_marginBottom="4dp"
             android:layout_marginRight="@dimen/item_margin"
-            android:textColor="@color/item_text"
+            android:textColor="@color/tertiary_text"
             android:textSize="@dimen/news_summary_photo_time_tv"
             tools:text="@string/news_summary_photo_time_tv"/>
     </LinearLayout>

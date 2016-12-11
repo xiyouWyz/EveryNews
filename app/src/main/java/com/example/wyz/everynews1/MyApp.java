@@ -3,9 +3,9 @@ package com.example.wyz.everynews1;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v7.app.AppCompatDelegate;
 
 import com.example.wyz.everynews1.common.Constants;
 import com.example.wyz.everynews1.di.component.ApplicationComponent;
@@ -13,10 +13,9 @@ import com.example.wyz.everynews1.di.component.DaggerApplicationComponent;
 import com.example.wyz.everynews1.di.module.ApplicationModule;
 import com.example.wyz.everynews1.utils.LogUtil;
 import com.example.wyz.everynews1.utils.MyUtils;
+
 //import com.squareup.leakcanary.LeakCanary;
 //import com.squareup.leakcanary.RefWatcher;
-
-import de.greenrobot.dao.query.QueryBuilder;
 
 /**
  * Created by Wyz on 2016/11/7.
@@ -40,7 +39,7 @@ public class MyApp extends Application{
 
         //initLeakCanary();
         //initActivityLifecycleLogs();
-        //initDayNightMode();
+        initDayNightMode();
 
         // 官方推荐将获取 DaoMaster 对象的方法放到 Application 层，这样将避免多次创建生成 Session 对象
         //setupDatabase();
@@ -117,14 +116,14 @@ public class MyApp extends Application{
                             .build());
         }
     }
-/*
+
     private void initDayNightMode() {
         if (MyUtils.isNightMode()) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
-    }*/
+    }
 /*
     private void setupDatabase() {
         // 通过 DaoMaster 的内部类 DevOpenHelper，你可以得到一个便利的 SQLiteOpenHelper 对象。

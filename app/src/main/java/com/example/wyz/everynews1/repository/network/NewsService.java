@@ -4,11 +4,8 @@ package com.example.wyz.everynews1.repository.network;
 import com.example.wyz.everynews1.mvp.entity.GirlData;
 import com.example.wyz.everynews1.mvp.entity.NewsDetail;
 import com.example.wyz.everynews1.mvp.entity.NewsSummary;
-import com.example.wyz.everynews1.mvp.entity.PhotoGirl;
-
 import java.util.List;
 import java.util.Map;
-
 import okhttp3.ResponseBody;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
