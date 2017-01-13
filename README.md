@@ -3,13 +3,13 @@
 ***
 一个基于Material Design的新闻客户端
 
-<img  src="./Screenshot_2017-01-13-18-21-39.png" width="50px" height="50px" alt="alt"/>
-![Alt text](./Screenshot_2017-01-13-18-21-39.png)
-![Alt text](./Screenshot_2017-01-13-18-17-30.png)
-![Alt text](./Screenshot_2017-01-13-18-17-41.png)
-![Alt text](./Screenshot_2017-01-13-18-17-54.png)
-![Alt text](./Screenshot_2017-01-13-18-18-01.png)
-![Alt text](./Screenshot_2017-01-13-18-18-29.png)
+![Image](https://github.com/xiyouWyz/EveryNews/blob/develop/app/src/picture/Screenshot_2017-01-13-18-17-39.png)
+![Image](https://github.com/xiyouWyz/EveryNews/blob/develop/app/src/picture/Screenshot_2017-01-13-18-17-30.png)
+![Image](https://github.com/xiyouWyz/EveryNews/blob/develop/app/src/picture/Screenshot_2017-01-13-18-17-41.png)
+![Image](https://github.com/xiyouWyz/EveryNews/blob/develop/app/src/picture/Screenshot_2017-01-13-18-17-54.png)
+![Image](https://github.com/xiyouWyz/EveryNews/blob/develop/app/src/picture/Screenshot_2017-01-13-18-17-01.png)
+![Image](https://github.com/xiyouWyz/EveryNews/blob/develop/app/src/picture/Screenshot_2017-01-13-18-17-29.png)
+
 ***
 ###主要用到的开源库
 
