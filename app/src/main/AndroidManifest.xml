@@ -13,7 +13,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".mvp.ui.main.activity.NewsActivity">
+        <activity android:name=".mvp.ui.main.activity.NewsActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,6 +24,7 @@
         <activity android:name=".mvp.ui.main.activity.NewsPhotoDetailActivity"/>
         <activity android:name=".mvp.ui.main.activity.PhotoActivity"/>
         <activity android:name=".mvp.ui.main.activity.PhotoDetailActivity"/>
+        <activity android:name=".mvp.ui.main.activity.NewsChannelActivity"/>
     </application>
 
 </manifest>

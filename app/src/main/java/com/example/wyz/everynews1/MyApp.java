@@ -3,6 +3,7 @@ package com.example.wyz.everynews1;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatDelegate;
@@ -11,11 +12,14 @@ import com.example.wyz.everynews1.common.Constants;
 import com.example.wyz.everynews1.di.component.ApplicationComponent;
 import com.example.wyz.everynews1.di.component.DaggerApplicationComponent;
 import com.example.wyz.everynews1.di.module.ApplicationModule;
+import com.example.wyz.everynews1.greendao.DaoMaster;
+import com.example.wyz.everynews1.greendao.DaoSession;
+import com.example.wyz.everynews1.greendao.NewsChannelTableDao;
 import com.example.wyz.everynews1.utils.LogUtil;
 import com.example.wyz.everynews1.utils.MyUtils;
 
-//import com.squareup.leakcanary.LeakCanary;
-//import com.squareup.leakcanary.RefWatcher;
+import de.greenrobot.dao.query.QueryBuilder;
+
 
 /**
  * Created by Wyz on 2016/11/7.
@@ -32,6 +36,7 @@ public class MyApp extends Application{
 
     private static Context sAppContext;
 
+    private static DaoSession mDaoSession;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -42,7 +47,7 @@ public class MyApp extends Application{
         initDayNightMode();
 
         // 官方推荐将获取 DaoMaster 对象的方法放到 Application 层，这样将避免多次创建生成 Session 对象
-        //setupDatabase();
+        setupDatabase();
         initApplicationComponent();
 
     }
@@ -124,7 +129,7 @@ public class MyApp extends Application{
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
     }
-/*
+
     private void setupDatabase() {
         // 通过 DaoMaster 的内部类 DevOpenHelper，你可以得到一个便利的 SQLiteOpenHelper 对象。
         // 可能你已经注意到了，你并不需要去编写「CREATE TABLE」这样的 SQL 语句，因为 greenDAO 已经帮你做了。
@@ -139,7 +144,7 @@ public class MyApp extends Application{
         QueryBuilder.LOG_SQL = BuildConfig.DEBUG;
         QueryBuilder.LOG_VALUES = BuildConfig.DEBUG;
     }
-*/
+
     public static Context getAppContext() {
         return sAppContext;
     }
@@ -154,13 +159,14 @@ public class MyApp extends Application{
     public ApplicationComponent getApplicationComponent() {
         return mApplicationComponent;
     }
-/*
+
     public static NewsChannelTableDao getNewsChannelTableDao() {
         return mDaoSession.getNewsChannelTableDao();
-    }*/
+    }
 
     //新闻信息是否包含图片
     public static boolean isHavePhoto() {
         return MyUtils.getSharedPreferences().getBoolean(Constants.SHOW_NEWS_PHOTO, true);
     }
+
 }

@@ -5,6 +5,7 @@ import com.example.wyz.everynews1.common.ApiConstants;
 import com.example.wyz.everynews1.greendao.NewsChannelTable;
 import com.example.wyz.everynews1.listener.RequestCallBack;
 import com.example.wyz.everynews1.mvp.interfactor.NewsInteractor;
+import com.example.wyz.everynews1.repository.db.NewsChannelTableManager;
 import com.example.wyz.everynews1.utils.TransformUtils;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,9 +28,9 @@ public class NewsInteractorImpl implements NewsInteractor<List<NewsChannelTable>
         return rx.Observable.create(new rx.Observable.OnSubscribe<List<NewsChannelTable>>() {
                     @Override
                     public void call(Subscriber<? super List<NewsChannelTable>> subscriber) {
-                       // NewsChannelTableManager.initDB();
-                        //subscriber.onNext(NewsChannelTableManager.loadNewsChannelsMine());
-                        subscriber.onNext(loadNewcChannelData());
+                        NewsChannelTableManager.initDB();
+                        subscriber.onNext(NewsChannelTableManager.loadNewsChannelsMine());
+                        //subscriber.onNext(loadNewcChannelData());
                         subscriber.onCompleted();
                     }
                 })
@@ -52,8 +53,8 @@ public class NewsInteractorImpl implements NewsInteractor<List<NewsChannelTable>
                 });
     }
 
-
-    public static  List<NewsChannelTable> loadNewcChannelData() {
+/*
+    public  List<NewsChannelTable> loadNewcChannelData() {
 
         List<NewsChannelTable> newsChannelTables=new ArrayList<>();
 
@@ -68,5 +69,5 @@ public class NewsInteractorImpl implements NewsInteractor<List<NewsChannelTable>
         }
         return  newsChannelTables;
 
-    }
+    }*/
 }

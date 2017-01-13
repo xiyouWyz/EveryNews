@@ -1,5 +1,6 @@
 package com.example.wyz.everynews1.mvp.ui.main.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -73,6 +74,10 @@ public class NewsActivity extends BaseActivity
                     @Override
                     public void call(ChannelChangeEvent channelChangeEvent) {
                         mNewsPresenter.onChannelDbChanged();
+
+                        Intent intent=new Intent(NewsActivity.this,NewsActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(0,0);
                     }
                 });
     }
@@ -97,11 +102,15 @@ public class NewsActivity extends BaseActivity
         mPresenter.attachView(this);
     }
 
-    @OnClick({R.id.fab})
+    @OnClick({R.id.fab,R.id.add_channel_iv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.fab:
                 RxBus.getInstance().post(new ScrollToTopEvent());
+                break;
+            case  R.id.add_channel_iv:
+                Intent intent=new Intent(this,NewsChannelActivity.class);
+                startActivity(intent);
                 break;
         }
 

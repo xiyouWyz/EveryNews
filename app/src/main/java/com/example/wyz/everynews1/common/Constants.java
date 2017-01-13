@@ -37,4 +37,7 @@ public class Constants {
 
     public static final String NEWS_LINK = "news_link";
     public static final String NEWS_TITLE = "news_title";
+
+    public static final int NEWS_CHANNEL_MINE = 0;
+    public static final int NEWS_CHANNEL_MORE = 1;
 }

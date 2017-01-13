@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -173,8 +174,14 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
                         case R.id.nav_photo:
                             mClass = PhotoActivity.class;
                             break;
-                        case R.id.nav_video:
+                        /*case R.id.nav_video:
                             Toast.makeText(BaseActivity.this, "施工准备中...", Toast.LENGTH_SHORT).show();
+                            break;*/
+                        case  R.id.nav_feedback:
+                            Intent data=new Intent();
+                            data.setAction(Intent.ACTION_SENDTO);
+                            data.setData(Uri.parse("mailto:xiyouwyz@163.com"));
+                            startActivity(data);
                             break;
                         case R.id.nav_night_mode:
                             break;

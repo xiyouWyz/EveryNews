@@ -7,6 +7,7 @@ import com.example.wyz.everynews1.di.module.ActivityModule;
 import com.example.wyz.everynews1.di.scope.ContextLife;
 import com.example.wyz.everynews1.di.scope.PerActivity;
 import com.example.wyz.everynews1.mvp.ui.main.activity.NewsActivity;
+import com.example.wyz.everynews1.mvp.ui.main.activity.NewsChannelActivity;
 import com.example.wyz.everynews1.mvp.ui.main.activity.NewsDetailActivity;
 import com.example.wyz.everynews1.mvp.ui.main.activity.NewsPhotoDetailActivity;
 import com.example.wyz.everynews1.mvp.ui.main.activity.PhotoActivity;
@@ -38,4 +39,7 @@ public interface ActivityComponent {
     void inject(PhotoActivity photoActivity);
 
     void inject(PhotoDetailActivity photoDetailActivity);
+
+    void inject(NewsChannelActivity newsChannelActivity);
+
 }

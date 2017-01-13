@@ -1,4 +1,4 @@
-/*
+
 package com.example.wyz.everynews1.repository.db;
 
 import com.example.wyz.everynews1.MyApp;
@@ -7,24 +7,21 @@ import com.example.wyz.everynews1.common.ApiConstants;
 import com.example.wyz.everynews1.common.Constants;
 import com.example.wyz.everynews1.greendao.NewsChannelTable;
 
+import com.example.wyz.everynews1.greendao.NewsChannelTableDao;
 import com.example.wyz.everynews1.utils.MyUtils;
 
 import java.util.Arrays;
 import java.util.List;
 
 import de.greenrobot.dao.query.Query;
-
-*/
 /**
  * Created by Wyz on 2016/11/15.
- *//*
-
+ */
 public class NewsChannelTableManager {
-
-    */
 /**
-     * 首次打开程序初始化db
-     *//*
+ * 首次打开程序初始化db
+ */
+
 
     public static void initDB() {
         if (!MyUtils.getSharedPreferences().getBoolean(Constants.INIT_DB, false)) {
@@ -96,4 +93,4 @@ public class NewsChannelTableManager {
                 .buildCount().count();
     }
 }
-*/
+
